@@ -51,7 +51,14 @@ public enum COUNTRY {
     this.country = country;
     this.foundedOn = foundedOn
   }
+  
+  public String getCountry() {
+    return this.country;
+  }
 
+  public LocalDate getFoundedOn() {
+    return this.foundedOn;
+  }
 }
 ```
 
