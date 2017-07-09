@@ -110,7 +110,7 @@ public class CSVEnumGenerator {
         try {
             data = getDataFromCSVFileThrowsException();
         } catch (IOException ex) {
-            throw new IllegalStateException(String.format("Unable to parse file: ", CSV_FILE), ex);
+            throw new IllegalStateException(String.format("Unable to parse file: %s", CSV_FILE), ex);
         }
         return data;
     }
