@@ -23,7 +23,7 @@ Generates java Enums from CSV files
 ```csv
 VALUE,String country,String alpha2,String alpha3
 CANADA,Canada,CA,CAN
-UNITED_STATES,United Sates,US,USA
+UNITED_STATES,United States,US,USA
 ```
 * aside from the reserved `VALUE` cell header, all other headers must contain a space to separate the variable type and variable name
 
