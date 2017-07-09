@@ -1,0 +1,3 @@
+VALUE,String countryName,LocalDate foundedOn
+CANADA,Canada,1867-07-01
+UNITED_STATES,United States Of America,1776-07-04

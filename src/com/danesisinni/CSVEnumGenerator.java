@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.val;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -93,10 +94,24 @@ public class CSVEnumGenerator {
 
         val initialize = new ArrayList<String>();
         for (String argument : argumentOrder) {
-            initialize.add("this." + argument + " = " + argument);
+            initialize.add("this." + argument + " = " + argument + ";");
         }
-        enumBuilder.append(Joiner.on(";\n").join(initialize));
-        enumBuilder.append("\n}\n\n}");
+        enumBuilder.append(Joiner.on("\n").join(initialize));
+        enumBuilder.append("\n}\n\n");
+
+
+        for (String argument : argumentOrder) {
+            enumBuilder.append("public ");
+            enumBuilder.append(arguments.get(argument));
+            enumBuilder.append(" get");
+            enumBuilder.append(StringUtils.capitalize(argument));
+            enumBuilder.append("() {\n");
+            enumBuilder.append("return this.");
+            enumBuilder.append(argument);
+            enumBuilder.append(";\n}\n\n");
+        }
+
+        enumBuilder.append("}");
 
         return enumBuilder.toString();
     }

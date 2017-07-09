@@ -21,7 +21,7 @@ Generates java Enums from CSV files
 
 ## Sample parseable CSV
 ```csv
-VALUE,String country,String alpha2,String alpha3
+VALUE,String countryName,String alpha2,String alpha3
 CANADA,Canada,CA,CAN
 UNITED_STATES,United States,US,USA
 ```
@@ -32,7 +32,7 @@ UNITED_STATES,United States,US,USA
 
 #### Custom data type example
 ```csv
-VALUE,String country,LocalDate foundedOn
+VALUE,String countryName,LocalDate foundedOn
 CANADA,Canada,1867-07-01
 UNITED_STATES,United States of America,1776-07-04
 ```
@@ -43,17 +43,17 @@ public enum COUNTRY {
   CANADA("Canada","1867-07-01"),
   UNITED_STATES("United States Of America","1776-07-04");
 
-  private final String country;
+  private final String countryName;
   private final LocalDate foundedOn;
 
 
-  COUNTRY(String country,LocalDate foundedOn) {
-    this.country = country;
+  COUNTRY(String countryName,LocalDate foundedOn) {
+    this.countryName = countryName;
     this.foundedOn = foundedOn;
   }
   
-  public String getCountry() {
-    return this.country;
+  public String getCountryName() {
+    return this.countryName;
   }
 
   public LocalDate getFoundedOn() {
@@ -66,9 +66,9 @@ public enum COUNTRY {
 ```java
  private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
  
- COUNTRY(String country, String foundedOn) {
+ COUNTRY(String countryName, String foundedOn) {
   LocalDate date = LocalDate.parse(foundedOn, formatter);
-  this(country, date);
+  this(countryName, date);
  }
 ```
 * As you can see for large data sets the csv-enum generator will signficantly reduce the manual work/number of lines a developer has to write
