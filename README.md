@@ -33,8 +33,8 @@ UNITED_STATES,United Sates,US,USA
 #### Custom data type example
 ```csv
 VALUE,String country,LocalDate foundedOn
-CANADA,1867-07-01
-UNITED_STATES,1776-07-04
+CANADA,Canada,1867-07-01
+UNITED_STATES,United States of America,1776-07-04
 ```
 ##### Generated Enum:
 ```java
