@@ -36,7 +36,7 @@ VALUE,String country,LocalDate foundedOn
 CANADA,Canada,1867-07-01
 UNITED_STATES,United States of America,1776-07-04
 ```
-##### Generated Enum:
+##### Generated Enum: `java -jar CsvEnumGenerator.jar countries.csv COUNTRY countries.java`
 ```java
 public enum COUNTRY { 
 
@@ -49,7 +49,7 @@ public enum COUNTRY {
 
   COUNTRY(String country,LocalDate foundedOn) {
     this.country = country;
-    this.foundedOn = foundedOn
+    this.foundedOn = foundedOn;
   }
   
   public String getCountry() {
